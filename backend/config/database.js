@@ -1,0 +1,19 @@
+const mongoose = require("mongoose");
+const connectDatabase = () => {
+  mongoose.set("strictQuery", false);
+
+  mongoose
+    .connect("mongodb://localhost:27017/ecom", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+
+    .then((con) => {
+      console.log(`MongoDB DB connected to: ${con.connection.host}`);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+module.exports = connectDatabase;
