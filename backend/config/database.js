@@ -3,7 +3,7 @@ const connectDatabase = () => {
   mongoose.set("strictQuery", false);
 
   mongoose
-    .connect("mongodb://localhost:27017/ecom", {
+    .connect(process.env.DB_LOCAL_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
